@@ -63,8 +63,7 @@
     const React = window.React;
     const ReactDOM = window.ReactDOM;
 
-    const React = window.React;
-
+    
 function useWindowWidth() {
   const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   React.useEffect(() => {
@@ -261,12 +260,8 @@ function HeroSection({ activeSection = '首頁', onNavClick }) {
   );
 }
 
-window.HeroSection = HeroSection;
-window.useWindowWidth = useWindowWidth;
 
 
-const React = window.React;
-const { Button, Tag } = DS;
 
 const SKILLS = ['React', 'TypeScript', 'Next.js', 'Figma', 'Node.js', 'CSS / Tailwind', 'UI/UX Design', 'Motion Design'];
 
@@ -353,11 +348,8 @@ function AboutSection() {
   );
 }
 
-window.AboutSection = AboutSection;
 
 
-const React = window.React;
-const { Button, Badge, Card } = DS;
 
 const PROJECTS = [
   {
@@ -608,11 +600,8 @@ function ProjectsSection() {
   );
 }
 
-window.ProjectsSection = ProjectsSection;
 
 
-const React = window.React;
-const { Button } = DS;
 
 const JOBS = [
   {
@@ -836,11 +825,8 @@ function ExperienceSection() {
   );
 }
 
-window.ExperienceSection = ExperienceSection;
 
 
-const React = window.React;
-const { Card, Tag, Button, Badge } = DS;
 
 const SIDE_PROJECTS = [
   {
@@ -1111,11 +1097,8 @@ function SideProjectSection() {
   );
 }
 
-window.SideProjectSection = SideProjectSection;
 
 
-const React = window.React;
-const { Button } = DS;
 
 const NAV_LINKS = ['首頁', '關於我', '專案', '經歷', 'Side Project'];
 
@@ -1181,7 +1164,6 @@ function FooterSection() {
   );
 }
 
-window.FooterSection = FooterSection;
 
 
     
