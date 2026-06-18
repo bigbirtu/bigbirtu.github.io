@@ -59,11 +59,10 @@
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel">
-    const React = window.React;
-    const ReactDOM = window.ReactDOM;
 
-    
+  <script type="text/babel">
+const React = window.React;
+
 function useWindowWidth() {
   const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   React.useEffect(() => {
@@ -260,8 +259,13 @@ function HeroSection({ activeSection = '首頁', onNavClick }) {
   );
 }
 
+window.HeroSection = HeroSection;
+window.useWindowWidth = useWindowWidth;
 
-
+  </script>
+  <script type="text/babel">
+const React = window.React;
+const useWindowWidth = window.useWindowWidth || function() { return 1200; };
 
 const SKILLS = ['React', 'TypeScript', 'Next.js', 'Figma', 'Node.js', 'CSS / Tailwind', 'UI/UX Design', 'Motion Design'];
 
@@ -348,8 +352,12 @@ function AboutSection() {
   );
 }
 
+window.AboutSection = AboutSection;
 
-
+  </script>
+  <script type="text/babel">
+const React = window.React;
+const useWindowWidth = window.useWindowWidth || function() { return 1200; };
 
 const PROJECTS = [
   {
@@ -600,8 +608,12 @@ function ProjectsSection() {
   );
 }
 
+window.ProjectsSection = ProjectsSection;
 
-
+  </script>
+  <script type="text/babel">
+const React = window.React;
+const useWindowWidth = window.useWindowWidth || function() { return 1200; };
 
 const JOBS = [
   {
@@ -825,8 +837,12 @@ function ExperienceSection() {
   );
 }
 
+window.ExperienceSection = ExperienceSection;
 
-
+  </script>
+  <script type="text/babel">
+const React = window.React;
+const useWindowWidth = window.useWindowWidth || function() { return 1200; };
 
 const SIDE_PROJECTS = [
   {
@@ -1097,8 +1113,12 @@ function SideProjectSection() {
   );
 }
 
+window.SideProjectSection = SideProjectSection;
 
-
+  </script>
+  <script type="text/babel">
+const React = window.React;
+const useWindowWidth = window.useWindowWidth || function() { return 1200; };
 
 const NAV_LINKS = ['首頁', '關於我', '專案', '經歷', 'Side Project'];
 
@@ -1164,9 +1184,14 @@ function FooterSection() {
   );
 }
 
+window.FooterSection = FooterSection;
 
+  </script>
+  <script type="text/babel">
 
-    
+const React = window.React;
+const ReactDOM = window.ReactDOM;
+
 const SECTIONS = [
   { id: 'hero',        label: '首頁' },
   { id: 'about',       label: '關於我' },
@@ -1207,14 +1232,21 @@ function App() {
     setActiveSection(link.label);
   };
 
+  const H  = window.HeroSection;
+  const Ab = window.AboutSection;
+  const Pr = window.ProjectsSection;
+  const Ex = window.ExperienceSection;
+  const Sp = window.SideProjectSection;
+  const Ft = window.FooterSection;
+
   return (
     <div style={{ fontFamily: 'var(--font-body)' }}>
-      <HeroSection activeSection={activeSection} onNavClick={handleNavClick} />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SideProjectSection />
-      <FooterSection />
+      {H  && <H  activeSection={activeSection} onNavClick={handleNavClick} />}
+      {Ab && <Ab />}
+      {Pr && <Pr />}
+      {Ex && <Ex />}
+      {Sp && <Sp />}
+      {Ft && <Ft />}
     </div>
   );
 }
